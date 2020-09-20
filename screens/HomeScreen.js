@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { TouchableOpacity, View, Text, StyleSheet, Image } from 'react-native';
 
 import MainContainer from '../components/Container'
-import AppName from '../components/AppName'
+import AppLogo from '../components/AppLogo'
 
 import colors from '../constants/colors'
 
@@ -10,18 +10,7 @@ const HomeScreen = props => {
 
   return(
     <MainContainer>
-      {/* logo image */}
-      <View style={styles.logoContainer}>
-        <Image 
-          source={require('../assets/sugame-logo.png')} 
-          resizeMode="contain"
-          style={styles.logo}
-        />
-      </View>
-      {/* App name */}
-      <AppName style={styles.appName}>Sugame</AppName>
-      <Text style={styles.catchPhrase}>Build. Have Fun. Don't int.</Text>
-
+      <AppLogo />
       {/* Buttons View */}
       <View style={styles.buttonsGroup}>
         <TouchableOpacity
@@ -48,37 +37,19 @@ const HomeScreen = props => {
 }
 
 const styles = StyleSheet.create({
-  logoContainer: {
-    marginVertical: 15,
-    width: '45%',
-    height: '45%',
-  },
-  logo: {
-    width: '100%',
-    height: '100%',
-  },
-  appName: {
-    marginTop: -100
-  },
-  catchPhrase: {
-    marginVertical: 0,
-    fontSize: 22,
-    fontFamily: 'content-text',
-    color: colors.secondaryContent
-  },
   buttonsGroup: {
-    marginVertical: 60
+    marginTop: -100
   },
   genericButton: {
     backgroundColor: colors.primaryContent,
-    marginVertical: 20,
+    marginVertical: 10,
     padding: 15,
     borderRadius: 100
   },
   buttonText: {
     fontSize: 25,
     color: colors.background,
-    fontFamily: 'app-name',
+    fontFamily: 'content-text',
     textAlign: 'center'
   }
 })

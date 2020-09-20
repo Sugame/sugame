@@ -15,9 +15,9 @@ const styles = StyleSheet.create({
     screen: {
         flex: 1,
         flexDirection: 'column',
-        padding: 10,
+        padding: 20,
         alignItems: 'center',
-        backgroundColor: colors.background
+        backgroundColor: colors.background,
     }
 })
 
