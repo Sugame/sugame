@@ -6,6 +6,8 @@ import HomeScreen from '../screens/HomeScreen'
 import AboutScreen from '../screens/AboutScreen'
 import BrowserScreen from '../screens/BrowserScreen'
 
+import colors from '../constants/colors'
+
 const SugameNavigator = createStackNavigator({
     Home: {
         screen: HomeScreen,
@@ -13,9 +15,33 @@ const SugameNavigator = createStackNavigator({
             headerShown: false,
         }
     },
-    About: AboutScreen,
+    About: {
+        screen: AboutScreen,
+        navigationOptions: {
+            headerStyle: {
+                backgroundColor: colors.primaryContent
+            },
+            headerTitleStyle: {
+                fontFamily: 'app-name',
+                textTransform: 'uppercase',
+                color: colors.background
+            },
+            headerTintColor: colors.background
+        }
+    },
     Browser: {
-        screen: BrowserScreen
+        screen: BrowserScreen,
+        navigationOptions: {
+            headerStyle: {
+                backgroundColor: colors.primaryContent
+            },
+            headerTitleStyle: {
+                fontFamily: 'app-name',
+                textTransform: 'uppercase',
+                color: colors.background
+            },
+            headerTintColor: colors.background
+        }
     }
 })
 

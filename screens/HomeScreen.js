@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Button, View, Text, StyleSheet, Image } from 'react-native';
+import { TouchableOpacity, View, Text, StyleSheet, Image } from 'react-native';
 
 import MainContainer from '../components/Container'
 import AppName from '../components/AppName'
@@ -24,16 +24,24 @@ const HomeScreen = props => {
 
       {/* Buttons View */}
       <View style={styles.buttonsGroup}>
-        <Button title="go to the about" onPress={()=>{
-          props.navigation.navigate({
-            routeName: 'About'
-          })
-        }}/>
-        <Button title="go to the browser" onPress={()=>{
-          props.navigation.navigate({
-            routeName: 'Browser'
-          })
-        }}/>
+        <TouchableOpacity
+        style={styles.genericButton}
+          onPress={()=>{
+            props.navigation.navigate({
+              routeName: 'About'
+            })}
+          }>
+          <Text style={styles.buttonText}>What is this app?</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.genericButton}
+          onPress={()=>{
+            props.navigation.navigate({
+              routeName: 'Browser'
+            })}
+          }>
+          <Text style={styles.buttonText}>Let's browse!</Text>
+        </TouchableOpacity> 
       </View>
     </MainContainer>
   )
@@ -60,6 +68,18 @@ const styles = StyleSheet.create({
   },
   buttonsGroup: {
     marginVertical: 60
+  },
+  genericButton: {
+    backgroundColor: colors.primaryContent,
+    marginVertical: 20,
+    padding: 15,
+    borderRadius: 100
+  },
+  buttonText: {
+    fontSize: 25,
+    color: colors.background,
+    fontFamily: 'app-name',
+    textAlign: 'center'
   }
 })
 
