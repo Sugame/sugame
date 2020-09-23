@@ -9,7 +9,8 @@ import SugameNavigator from './navigation/SugameNavigator'
 const fetchFonts = () => {
   return Font.loadAsync({
     'content-text': require('./assets/fonts/Montserrat-Regular.ttf'),
-    'app-name': require('./assets/fonts/Montserrat-SemiBold.ttf')
+    'app-name': require('./assets/fonts/Montserrat-SemiBold.ttf'),
+    'champ-name': require('./assets/fonts/Montserrat-Bold.ttf')
   })
 }
 

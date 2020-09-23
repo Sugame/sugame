@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import { ScrollView, Image, View, Text, StyleSheet } from 'react-native';
+import { Image, View, Text, StyleSheet, FlatList } from 'react-native';
+import { color } from 'react-native-reanimated';
 
 import MainContainer from '../components/Container'
 import colors from '../constants/colors';
@@ -7,6 +8,7 @@ import colors from '../constants/colors';
 
 const BrowserScreen = props => {
   const [champion, setChampion] = useState(null)
+
   // riot api call
   useEffect(() => {
     async function fetchChampData() {
@@ -22,19 +24,17 @@ const BrowserScreen = props => {
   const champArray = []
   for (let key in champion) {
     champArray.push(key)
-    // console.log(champion)
   }
-
 
   return(
     <MainContainer style={styles.browserContainer}>
       {/* <Text>Browser SCREEN</Text> */}
-      <View style={styles.imageContainer}>
+      <View style={styles.sectionContainer}>
         {champArray.map((prop) => {
           return (
-            <View>
+            <View style={styles.champContainer} key={prop}>
               <Image resizeMode="contain" style={styles.champImg} source={{uri: `http://ddragon.leagueoflegends.com/cdn/10.19.1/img/champion/${prop}.png`}}/>
-              {/* <Text style={styles.champText}>{Object.keys(champion.name)}</Text> */}
+              <Text style={styles.champText}>{champion[`${prop}`].name}</Text>
             </View>
           )
         })}
@@ -47,21 +47,37 @@ const styles = StyleSheet.create({
   browserContainer: {
     flex: 0
   },
-  imageContainer: {
-    justifyContent: 'space-between',
+  sectionContainer: {
+    // justifyContent: 'space-between',
+    justifyContent: 'center',
     flexDirection: 'row',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    alignItems: 'center'
   },
-  champImg: {
+  champContainer: {
+    alignItems: 'center',
     width: 100,
     height: 100,
-    marginTop: 10
+    margin: 8,
+    padding: 2,
+    justifyContent: 'center',
+    backgroundColor: colors.primaryContent,
+    borderRadius: 10
+  },
+  champImg: {
+    width: 50,
+    height: 50,
+    alignSelf: 'center',
+    // borderRadius: 100
   },
   champText: {
     fontFamily: 'app-name',
     textTransform: 'uppercase',
-    color: colors.primaryContent,
-    textAlign: 'center',
+    color: colors.background,
+    fontSize: 10,
+    marginTop: 2,
+    textAlign: 'center'
+    // width: '50%'
   }
 })
 
