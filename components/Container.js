@@ -1,13 +1,13 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 
 import colors from '../constants/colors'
 
 const MainContainer = props => {
     return (
-        <View style={{...styles.screen, ...props.style}}>
+        <ScrollView contentContainerStyle={{...styles.screen, ...props.style}}>
             {props.children}
-        </View>
+        </ScrollView>
     )
 }
 
